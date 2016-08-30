@@ -13,6 +13,11 @@
 		665349781D7576D200868617 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 665349761D7576D200868617 /* Main.storyboard */; };
 		6653497A1D7576D200868617 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 665349791D7576D200868617 /* Assets.xcassets */; };
 		6653497D1D7576D200868617 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6653497B1D7576D200868617 /* LaunchScreen.storyboard */; };
+		6653498C1D7576EB00868617 /* EJTextAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 665349851D7576EB00868617 /* EJTextAttachment.m */; };
+		6653498D1D7576EB00868617 /* FontColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 665349871D7576EB00868617 /* FontColorView.m */; };
+		6653498E1D7576EB00868617 /* KeyboardInputAccessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 665349891D7576EB00868617 /* KeyboardInputAccessView.m */; };
+		6653498F1D7576EB00868617 /* FontSizeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6653498B1D7576EB00868617 /* FontSizeView.m */; };
+		665349921D75775F00868617 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 665349911D75775F00868617 /* UIColor+Hex.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,16 @@
 		665349791D7576D200868617 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6653497C1D7576D200868617 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6653497E1D7576D200868617 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		665349841D7576EB00868617 /* EJTextAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EJTextAttachment.h; sourceTree = "<group>"; };
+		665349851D7576EB00868617 /* EJTextAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EJTextAttachment.m; sourceTree = "<group>"; };
+		665349861D7576EB00868617 /* FontColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontColorView.h; sourceTree = "<group>"; };
+		665349871D7576EB00868617 /* FontColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontColorView.m; sourceTree = "<group>"; };
+		665349881D7576EB00868617 /* KeyboardInputAccessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardInputAccessView.h; sourceTree = "<group>"; };
+		665349891D7576EB00868617 /* KeyboardInputAccessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyboardInputAccessView.m; sourceTree = "<group>"; };
+		6653498A1D7576EB00868617 /* FontSizeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontSizeView.h; sourceTree = "<group>"; };
+		6653498B1D7576EB00868617 /* FontSizeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontSizeView.m; sourceTree = "<group>"; };
+		665349901D75775F00868617 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		665349911D75775F00868617 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +73,16 @@
 		6653496C1D7576D200868617 /* TextViewDemo */ = {
 			isa = PBXGroup;
 			children = (
+				665349841D7576EB00868617 /* EJTextAttachment.h */,
+				665349851D7576EB00868617 /* EJTextAttachment.m */,
+				665349861D7576EB00868617 /* FontColorView.h */,
+				665349871D7576EB00868617 /* FontColorView.m */,
+				665349881D7576EB00868617 /* KeyboardInputAccessView.h */,
+				665349891D7576EB00868617 /* KeyboardInputAccessView.m */,
+				6653498A1D7576EB00868617 /* FontSizeView.h */,
+				6653498B1D7576EB00868617 /* FontSizeView.m */,
+				665349901D75775F00868617 /* UIColor+Hex.h */,
+				665349911D75775F00868617 /* UIColor+Hex.m */,
 				665349701D7576D200868617 /* AppDelegate.h */,
 				665349711D7576D200868617 /* AppDelegate.m */,
 				665349731D7576D200868617 /* ViewController.h */,
@@ -149,9 +174,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6653498E1D7576EB00868617 /* KeyboardInputAccessView.m in Sources */,
+				6653498F1D7576EB00868617 /* FontSizeView.m in Sources */,
 				665349751D7576D200868617 /* ViewController.m in Sources */,
 				665349721D7576D200868617 /* AppDelegate.m in Sources */,
+				6653498C1D7576EB00868617 /* EJTextAttachment.m in Sources */,
+				665349921D75775F00868617 /* UIColor+Hex.m in Sources */,
 				6653496F1D7576D200868617 /* main.m in Sources */,
+				6653498D1D7576EB00868617 /* FontColorView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +296,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TextViewDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zl.TextViewDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -277,6 +308,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TextViewDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zl.TextViewDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
