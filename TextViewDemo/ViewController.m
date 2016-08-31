@@ -120,7 +120,7 @@
     } clickDoneBlock:^{
         //点击关闭
         [self.view endEditing:YES];
-        [self updateTextViewContent];
+        [self setInitLocation];
     }];
     
     tv.inputAccessoryView = inputAccessView;
