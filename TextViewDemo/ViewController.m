@@ -9,8 +9,11 @@
 #import "ViewController.h"
 #import "KeyboardInputAccessView.h"
 #import "UIColor+Hex.h"
-
-@interface ViewController () <UITextViewDelegate>
+#import "EJTextAttachment.h"
+@interface ViewController () <
+    UITextViewDelegate,
+    UIImagePickerControllerDelegate,
+    UINavigationControllerDelegate>
 {
     UITextView *tv;
 }
@@ -59,6 +62,7 @@
         self.color = color;
         if (tv.selectedRange.length > 0) {
             self.isEdit = YES;
+            self.editType = EditFontColor;
             self.newRange = tv.selectedRange;
             self.newstr = [tv.text substringWithRange:self.newRange];
             [self updateTextViewContent];
@@ -69,9 +73,11 @@
     } fontSizeBlock:^(CGFloat fontSize) {
         //选择字号
         self.fontSize = fontSize;
-//        [self setInitLocation];
         if (tv.selectedRange.length > 0) {
-            
+            self.isEdit = YES;
+            self.editType = EditFontSize;
+            self.newRange = tv.selectedRange;
+            self.newstr = [tv.text substringWithRange:self.newRange];
             [self updateTextViewContent];
         }else{
             [self setInitLocation];
@@ -83,29 +89,132 @@
             {
                 //加粗
                 self.isBold = isBold;
+                self.editType = EditFontBold;
                 break;
             }case 1:
             {
                 //下划线
                 self.isUnderline = isUnderline;
+                self.editType = EditFontUnderline;
                 break;
             }case 2:
             {
                 //图片
+                [self chooseCameraType];
                 break;
             }
                 
             default:
                 break;
         }
-        [self setInitLocation];
+        
+        if (tv.selectedRange.length > 0 && tag != 2) {
+            self.isEdit = YES;
+            self.newRange = tv.selectedRange;
+            self.newstr = [tv.text substringWithRange:self.newRange];
+            [self updateTextViewContent];
+        }else{
+            [self setInitLocation];
+        }
+        
     } clickDoneBlock:^{
         //点击关闭
+        [self.view endEditing:YES];
+        [self updateTextViewContent];
     }];
     
     tv.inputAccessoryView = inputAccessView;
     
 }
+
+- (void)chooseCameraType {
+    [self.view endEditing:YES];
+    
+    
+    __weak typeof(self) weakSelf=self;
+    UIAlertController * alertVC=[UIAlertController alertControllerWithTitle:@"选择照片" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+    [alertVC addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [weakSelf selectedImage];
+    }]];
+    [alertVC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }]];
+    
+    
+    [self presentViewController:alertVC animated:YES completion:nil];
+}
+
+-(void)selectedImage
+{
+    
+    NSUInteger sourceType =UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+    
+    imagePickerController.delegate = self;
+    
+    imagePickerController.allowsEditing = NO;
+    
+    imagePickerController.sourceType = sourceType;
+    
+    [self presentViewController:imagePickerController animated:YES completion:^{}];
+}
+
+
+#pragma mark - image picker delegte
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    
+    
+    
+    [picker dismissViewControllerAnimated:YES completion:^{}];
+    
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    /* 此处info 有六个值
+     * UIImagePickerControllerMediaType; // an NSString UTTypeImage)
+     * UIImagePickerControllerOriginalImage;  // a UIImage 原始图片
+     * UIImagePickerControllerEditedImage;    // a UIImage 裁剪后图片
+     * UIImagePickerControllerCropRect;       // an NSValue (CGRect)
+     * UIImagePickerControllerMediaURL;       // an NSURL
+     * UIImagePickerControllerReferenceURL    // an NSURL that references an asset in the AssetsLibrary framework
+     * UIImagePickerControllerMediaMetadata    // an NSDictionary containing metadata from a captured photo
+     */
+    //    // 保存图片至本地，方法见下文
+    //    NSLog(@"img = %@",image);
+    
+    if (tv.attributedText.length>0) {
+        [self appenReturn];
+    }
+    
+    EJTextAttachment *ejTextAttachment = [[EJTextAttachment alloc]initWithData:nil ofType:nil];
+    ejTextAttachment.image = image;
+    
+    NSMutableAttributedString *mutableAttri = [[NSMutableAttributedString alloc]initWithAttributedString:tv.attributedText];
+    
+    [mutableAttri insertAttributedString:[NSAttributedString attributedStringWithAttachment:ejTextAttachment]
+                                 atIndex:tv.selectedRange.location];
+    tv.attributedText = mutableAttri;
+    [self setInitLocation];
+    
+     [self appenReturn];
+    
+    tv.selectedRange = NSMakeRange(self.locationStr.length, 0);
+    //图片添加后 自动换行
+//    [self setImageText:image withRange:self.textView.selectedRange appenReturn:YES];
+    
+//    [self.textView becomeFirstResponder];
+    
+}
+
+-(void)appenReturn
+{
+    NSAttributedString * returnStr=[[NSAttributedString alloc]initWithString:@"\n"];
+    NSMutableAttributedString * att=[[NSMutableAttributedString alloc]initWithAttributedString:tv.attributedText];
+    [att appendAttributedString:returnStr];
+    
+    tv.attributedText=att;
+}
+
 
 //把最新内容都赋给self.locationStr
 -(void)setInitLocation
@@ -113,9 +222,6 @@
 
     self.locationStr=nil;
     self.locationStr=[[NSMutableAttributedString alloc]initWithAttributedString:tv.attributedText];
-//    if (self.textView.textStorage.length>0) {
-//        self.placeholderLabel.hidden=YES;
-//    }
     
 }
 
@@ -129,7 +235,57 @@
     }
     
     if (self.isEdit) {
-        [self.locationStr addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:self.color] range:self.newRange];
+        
+        if (self.editType == EditFontUnderline) {
+            [self.locationStr enumerateAttribute:NSForegroundColorAttributeName inRange:self.newRange options:0 usingBlock:^(id  _Nullable value, NSRange range, BOOL * _Nonnull stop) {
+                
+                if (self.isUnderline) {
+                    NSString *colorValue = [NSString stringWithFormat:@"%@",value];
+                    NSArray *colorArr = [colorValue componentsSeparatedByString:@" "];
+                    UIColor *color = [UIColor colorWithRed:[colorArr[1] floatValue] green:[colorArr[2] floatValue] blue:[colorArr[3] floatValue] alpha:[[colorArr lastObject] floatValue]];
+                    [self.locationStr addAttribute:NSUnderlineColorAttributeName value:color range:range];
+                    [self.locationStr addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:1] range:range];
+                }else{
+                    [self.locationStr removeAttribute:NSUnderlineColorAttributeName range:range];
+                    [self.locationStr removeAttribute:NSUnderlineStyleAttributeName range:range];
+                }
+                
+            }];
+        }else if (self.editType == EditFontColor){
+            [self.locationStr addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:self.color] range:self.newRange];
+        }else{
+            [self.locationStr enumerateAttribute:NSFontAttributeName inRange:self.newRange options:0 usingBlock:^(id  _Nullable value, NSRange range, BOOL * _Nonnull stop) {
+                UIFont *font = (UIFont *)value;
+                NSString *fontValue = [NSString stringWithFormat:@"%@",value];
+                NSRange boldRange = [fontValue rangeOfString:@"bold"];
+                
+                switch (self.editType) {
+                    case EditFontBold:
+                    {
+                        //加粗
+                        if (self.isBold) {
+                            [self.locationStr addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:font.pointSize] range:range];
+                        }else{
+                            [self.locationStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:font.pointSize] range:range];
+                        }
+                        break;
+                    }case EditFontSize:{
+                        //字号
+                        if (boldRange.location != NSNotFound) {
+                            [self.locationStr addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:self.fontSize] range:range];
+                        }else{
+                            [self.locationStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:self.fontSize] range:range];
+                        }
+                        break;
+                    }
+                        
+                    default:
+                        break;
+                }
+                
+            }];
+        }
+        
         tv.attributedText = self.locationStr;
         self.isEdit = NO;
     }else{
@@ -187,18 +343,11 @@
         if (!position) {
             //            NSLog(@"汉字");
             [self updateTextViewContent];
-//            if ( str.length>=MaxLength) {
-//                NSString *strNew = [NSString stringWithString:str];
-//                [ self.textView setText:[strNew substringToIndex:MaxLength]];
-//            }
+
         }
         else
         {
                 NSLog(@"没有转化--%@",str);
-//            if ([str length]>=MaxLength+10) {
-//                NSString *strNew = [NSString stringWithString:str];
-//                [ self.textView setText:[strNew substringToIndex:MaxLength+10]];
-//            }
             
         }
     }else{

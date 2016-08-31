@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TextViewDemo/ViewController.m"
-            timestampString = "494309936.020758"
+            timestampString = "494327853.885016"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "256"
-            endingLineNumber = "256">
+            startingLineNumber = "405"
+            endingLineNumber = "405">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -24,11 +24,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TextViewDemo/ViewController.m"
-            timestampString = "494322774.077323"
+            timestampString = "494327853.885016"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "337"
-            endingLineNumber = "337">
+            startingLineNumber = "486"
+            endingLineNumber = "486">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -38,13 +38,90 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TextViewDemo/ViewController.m"
-            timestampString = "494309255.670922"
+            timestampString = "494327083.008838"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ViewController viewDidLoad]"
+                  moduleName = "TextViewDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhaolu/Desktop/TextViewDemo/TextViewDemo/ViewController.m"
+                  timestampString = "494327568.987832"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "1212">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__29-[ViewController viewDidLoad]_block_invoke"
+                  moduleName = "TextViewDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhaolu/Desktop/TextViewDemo/TextViewDemo/ViewController.m"
+                  timestampString = "494327568.98797"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "654">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__copy_helper_block_"
+                  moduleName = "TextViewDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhaolu/Desktop/TextViewDemo/TextViewDemo/ViewController.m"
+                  timestampString = "494327568.988076"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "34">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_"
+                  moduleName = "TextViewDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhaolu/Desktop/TextViewDemo/TextViewDemo/ViewController.m"
+                  timestampString = "494327568.988184"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__29-[ViewController viewDidLoad]_block_invoke.62"
+                  moduleName = "TextViewDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhaolu/Desktop/TextViewDemo/TextViewDemo/ViewController.m"
+                  timestampString = "494327568.988321"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "38">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -54,11 +131,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TextViewDemo/ViewController.m"
-            timestampString = "494309936.020758"
+            timestampString = "494327853.885016"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
+            startingLineNumber = "300"
+            endingLineNumber = "300"
             landmarkName = "-updateTextViewContent"
             landmarkType = "5">
          </BreakpointContent>
@@ -70,11 +147,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TextViewDemo/ViewController.m"
-            timestampString = "494309303.459202"
+            timestampString = "494327853.885016"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
+            startingLineNumber = "295"
+            endingLineNumber = "295"
             landmarkName = "-updateTextViewContent"
             landmarkType = "5">
          </BreakpointContent>
@@ -86,11 +163,75 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TextViewDemo/ViewController.m"
-            timestampString = "494322774.077323"
+            timestampString = "494327853.885016"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "292"
-            endingLineNumber = "292">
+            startingLineNumber = "441"
+            endingLineNumber = "441">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TextViewDemo/ViewController.m"
+            timestampString = "494327107.624207"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
+            landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ViewController imagePickerController:didFinishPickingMediaWithInfo:]"
+                  moduleName = "TextViewDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhaolu/Desktop/TextViewDemo/TextViewDemo/ViewController.m"
+                  timestampString = "494327569.030784"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "170"
+                  endingLineNumber = "170"
+                  offsetFromSymbolStart = "78">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__70-[ViewController imagePickerController:didFinishPickingMediaWithInfo:]_block_invoke"
+                  moduleName = "TextViewDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhaolu/Desktop/TextViewDemo/TextViewDemo/ViewController.m"
+                  timestampString = "494327569.030906"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "170"
+                  endingLineNumber = "170"
+                  offsetFromSymbolStart = "6">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TextViewDemo/ViewController.m"
+            timestampString = "494327503.201814"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "194"
+            endingLineNumber = "194"
+            landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -8,8 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum : NSUInteger {
+    EditFontBold = 1,
+    EditFontUnderline,
+    EditFontSize,
+    EditFontColor,
+} EditFontType;
+
 @interface ViewController : UIViewController
 
+@property (assign, nonatomic) EditFontType editType;
 
 @end
 
